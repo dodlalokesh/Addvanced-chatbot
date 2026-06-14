@@ -25,49 +25,54 @@ Transform chatbot responses into actionable, guided problem-solving workflows.
 
 This project focuses on making AI practical, usable, and execution-ready, rather than just conversational.
 
-🏗️ System Architecture
+🏗️ Omni Solve AI – Functional Architecture Diagram
 
-🔷 Architecture Overview
-
-./images/architecture.png
-
-
-🔶 Architecture Flow
-
-================ USER ACCESS LAYER ================
-
-
-User → Browser → Domain (omnisolve.local)
-       ↓
-       
-Local DNS + Port Forwarding
-       ↓
-       
-Nginx Ingress Controller
-       ↓
-       
-Kubernetes Services
-       ↓
-       
-Chatbot Pods (Nginx UI)
-
-
-
-================ APPLICATION LAYER ================
-
-
-React UI (HTML + CSS + JS)
-
-       ↓
-Served via Nginx Container
-
-       ↓
-Runs inside Kubernetes (Minikube)
-
-       ↓
-Deployment (2 Replicas)
-
-
+┌─────────────────────┐
+│        USER         │
+└──────────┬──────────┘
+           │ Ask Question / Problem
+           ▼
+┌────────────────────────────────┐
+│        Chatbot UI              │
+│ (HTML5 + CSS3 + JavaScript)    │
+│ - Interactive Steps            │
+│ - Progress Tracking            │
+│ - Copy Commands                │
+└──────────┬─────────────────────┘
+           │ User Input
+           ▼
+┌────────────────────────────────┐
+│     Problem Detection Engine   │
+│ - Keyword Analysis             │
+│ - Domain Identification        │
+│ (Coding / Network / Hardware)  │
+└──────────┬─────────────────────┘
+           │ Route Request
+           ▼
+┌────────────────────────────────┐
+│  Diagnostic Logic Engine       │
+│ - Troubleshooting Tree         │
+│ - Step-by-Step Solutions       │
+└──────────┬─────────────────────┘
+           │ Generate Output
+           ▼
+┌────────────────────────────────┐
+│   Response Formatter          │
+│ - Checklist UI                │
+│ - Code Diffs                  │
+│ - Warning Boxes               │
+└──────────┬─────────────────────┘
+           │ Structured Response
+           ▼
+┌────────────────────────────────┐
+│      Chatbot UI Display        │
+│  Interactive Solution Output   │
+└──────────┬─────────────────────┘
+           │
+           ▼
+┌─────────────────────┐
+│   Problem Resolved  │
+└─────────────────────┘
 
 ================ CI/CD PIPELINE =================
 
