@@ -7,10 +7,15 @@ Unlike traditional chatbots that provide static responses, Omni Solve AI deliver
 🎯 Key Features
 
 ✅ Interactive troubleshooting workflows
+
 ✅ Step-by-step diagnostic checklists
+
 ✅ Copy-on-click terminal commands
+
 ✅ Structured code diffs (not plain text)
+
 ✅ Smart domain detection (Coding / Network / Hardware)
+
 ✅ Real-time progress tracking UI
 
 
