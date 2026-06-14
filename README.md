@@ -26,8 +26,11 @@ Transform chatbot responses into actionable, guided problem-solving workflows.
 This project focuses on making AI practical, usable, and execution-ready, rather than just conversational.
 
 🏗️ System Architecture
+
 🔷 Architecture Overview
+
 ./images/architecture.png
+
 
 🔶 Architecture Flow
 
