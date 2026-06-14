@@ -1,66 +1,234 @@
-# OmniSolve AI - Real-Time Diagnostics Chatbot
+🚀 Omni Solve AI
 
-OmniSolve AI is a premium, client-side interactive chatbot application designed to solve real-world coding, network connectivity, and DIY hardware issues in real-time.
+Omni Solve AI is a premium, client-side interactive chatbot application designed to solve real-world coding, network connectivity, and DIY hardware issues in real time.
 
-Instead of simple static text replies, it returns interactive step-by-step diagnostic checklists, copy-on-click console commands, structural code diffs, and warning boxes.
+Unlike traditional chatbots that provide static responses, Omni Solve AI delivers interactive, step-by-step solutions including diagnostic checklists, copy-ready commands, structured code diffs, and warning guidance.
 
-DevOps Project Explanation: OmniSolve AI
----
-This document serves as a complete presentation and review guide for the OmniSolve AI DevOps project. It explains the system architecture, component integrations, automation workflows, and monitoring implementations.
+🎯 Key Features
 
-System Architecture
----
-Below is the visual flow showing how the developer's code changes move through Jenkins into Minikube, and how end-users and monitoring systems access the running application:
-
-<img width="439" height="425" alt="Screenshot 2026-06-14 151603" src="https://github.com/user-attachments/assets/5bbc736a-d410-4ccf-b902-c71d22d2f869" />
-
----
-## Application Layer (The Chatbot)
-Frontend: Built using clean, responsive HTML5, modern CSS3 variables (featuring a dark glassmorphic UI), and Vanilla ES6+ JavaScript.
-Logic: Implements a diagnostic troubleshooting tree that maps specific developer/networking/hardware problems into interactive checklists. Checking off steps updates a visual progress bar.
-Smart Routing: Key-phrase detection switches chatbot domains dynamically if a user asks a question belonging to another category.
-
-Containerization (Docker)
----
-Docker file
-: Uses a secure, optimized Nginx Alpine base image. It copies the client-side code directly into Nginx's hosting directory (/usr/share/nginx/html) and exposes port 80.
-docker-compose.yml
-: Created to enable single-command runs (docker compose up --build) during local developer sandbox runs. Includes Nginx container logging limitations and HTTP curl-based healthchecks.
-
-Orchestration (Minikube / Kubernetes)
----
-Pods & ReplicaSet: Managed by a Kubernetes Deployment (deployment.yaml). It maintains 2 replicas of the chatbot for high availability.
-Resource Quotas: Limits are set (limits: cpu: 200m, memory: 256Mi) to protect the node from CPU/RAM spikes and enable Prometheus monitoring.
-Health Probes: Configures livenessProbe and readinessProbe to ping the Nginx index path / on port 80. If Nginx freezes, Kubernetes automatically restarts the pod.
-Service: Configures a ClusterIP service (service.yaml). It acts as an internal load balancer, creating a single internal IP that points to the chatbot pods.
-
-Routing & Exposing (Ingress & Controller)
----
-Ingress Resource: Configures host-based routing (ingress.yaml) to direct traffic to the cluster:
-omnisolve.local ➔ Chatbot Service (port 80)
-prometheus.local ➔ Prometheus Service (port 9090)
-grafana.local ➔ Grafana Service (port 3000)
-Ingress Controller: An Nginx Ingress Controller addon runs inside the cluster to intercept incoming requests and parse the Host HTTP headers to determine where to route the traffic.
-Local DNS Resolver: Mappings in the Windows hosts file resolve the custom domains to the AWS EC2 Public IP.
-Port Forwarding: Maps port 8081 on the host to port 80 of the Ingress Controller inside Minikube, allowing external access to the Ingress rules.
+✅ Interactive troubleshooting workflows
+✅ Step-by-step diagnostic checklists
+✅ Copy-on-click terminal commands
+✅ Structured code diffs (not plain text)
+✅ Smart domain detection (Coding / Network / Hardware)
+✅ Real-time progress tracking UI
 
 
-Automation (Jenkins CI/CD)
----
-Jenkinsfile
-: Defines a Declarative Pipeline running these stages:
-Checkout: Pulls code from GitHub.
-Static Check: Verifies essential assets (index.html, etc.) are present.
-Build Docker Image: Builds the image using the local Docker context.
-Docker Push: Authenticates using Jenkins credentials (dockerhub-creds) and pushes the image to Docker Hub (lokeshreddy45/chatbot:latest).
-Deploy: Automatically applies all Kubernetes manifests (k8s/).
-Rollout Verification: Runs kubectl rollout status to check if pods start successfully without crashing.
+🧠 Project Vision
 
-Observability (Prometheus & Grafana)
----
-Prometheus (prometheus.yaml):
-Scrapes Kubernetes core metrics (via cAdvisor) to measure CPU usage, Memory limits, and network throughput of the chatbot containers.
-Permissions are set up via a ServiceAccount, ClusterRole, and ClusterRoleBinding so Prometheus can read Pod/Node stats from the Kubernetes API server.
-Grafana (grafana.yaml):
-Connects to Prometheus as a data source using the internal cluster address (http://prometheus-service:9090).
-Displays graphs mapping Pod health, CPU usage, RAM allocation, and network ingress/egress.
+Transform chatbot responses into actionable, guided problem-solving workflows.
+
+This project focuses on making AI practical, usable, and execution-ready, rather than just conversational.
+
+🏗️ System Architecture
+🔷 Architecture Overview
+./images/architecture.png
+
+🔶 Architecture Flow
+================ USER ACCESS LAYER ================
+
+User → Browser → Domain (omnisolve.local)
+       ↓
+Local DNS + Port Forwarding
+       ↓
+Nginx Ingress Controller
+       ↓
+Kubernetes Services
+       ↓
+Chatbot Pods (Nginx UI)
+
+
+================ APPLICATION LAYER ================
+
+React UI (HTML + CSS + JS)
+       ↓
+Served via Nginx Container
+       ↓
+Runs inside Kubernetes (Minikube)
+       ↓
+Deployment (2 Replicas)
+
+
+================ CI/CD PIPELINE =================
+
+Webhook Trigger
+       ↓
+Jenkins Pipeline
+       ↓
+Docker Build
+       ↓
+Docker Hub Push
+       ↓
+Kubernetes Deployment
+
+
+================ MONITORING =================
+
+Prometheus → Collect Metrics
+       ↓
+Grafana → Visualize Dashboards
+
+
+⚙️ Technology Stack
+🔹 Frontend
+
+HTML5
+CSS3 (Glassmorphism UI)
+Vanilla JavaScript (ES6+)
+
+🔹 Containerization
+
+Docker
+Docker Compose
+Nginx Alpine
+
+🔹 Orchestration
+
+Kubernetes
+Minikube
+Deployment, Services, Ingress
+
+🔹 CI/CD
+
+Jenkins
+GitHub Webhooks
+
+🔹 Monitoring
+
+Prometheus
+Grafana
+
+
+🐳 Containerization (Docker)
+
+Uses Nginx Alpine Image
+Hosts UI inside:
+/usr/share/nginx/html
+
+
+Exposes:
+Port 80
+
+
+
+✅ Run Locally
+Shelldocker compose up --buildShow more lines
+
+☸️ Kubernetes (Minikube)
+🔹 Deployment
+
+Maintains 2 replicas
+Ensures high availability
+
+🔹 Resource Limits
+YAMLcpu: 200mmemory: 256MiShow more lines
+🔹 Health Checks
+
+Liveness Probe ✅
+Readiness Probe ✅
+
+🔹 Service
+
+ClusterIP (internal load balancing)
+
+
+🌐 Ingress & Routing
+✅ Domains
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DomainServiceomnisolve.localChatbot Appprometheus.localPrometheusgrafana.localGrafana
+✅ Features
+
+Host-based routing
+Nginx Ingress Controller
+Local DNS (hosts file)
+Port forwarding (8081 → 80)
+
+
+🤖 CI/CD Pipeline (Jenkins)
+✅ Pipeline Stages
+
+Checkout code
+Validate files
+Build Docker image
+Push to Docker Hub
+Deploy to Kubernetes
+Verify rollout
+
+✅ Image
+lokeshreddy45/chatbot:latest
+
+
+📊 Monitoring (Prometheus & Grafana)
+🔹 Prometheus
+
+
+Collects:
+
+CPU usage
+Memory usage
+Network metrics
+
+
+
+Uses:
+
+cAdvisor
+Kubernetes API
+
+
+
+
+🔹 Grafana
+
+Visual dashboards for:
+
+Pod health
+Resource usage
+Performance metrics
+
+
+
+
+🔄 Application Flow (Simple)
+User → UI → Kubernetes → Pods
+        ↓
+    Request handled
+        ↓
+    Response returned
+
+
+📸 Screenshots (Add These)
+Add screenshots in this section:
+Markdown## Screenshots### Jenkins Pipeline![Jenkins](images/jenkins.png)### Docker Hub![Docker](images/docker.png)### Kubernetes Pods![K8s](images/k8s.png)### Prometheus![Prometheus](images/prometheus.png)### Grafana Dashboard![Grafana](images/grafana.png)### Application UI![App](images/app.png)Show less
+
+🎯 Key Highlights
+
+✅ Fully containerized application
+✅ Kubernetes orchestration
+✅ CI/CD automation
+✅ Ingress-based routing
+✅ Real-time monitoring
+✅ Zero-cost local setup
+
+
+🚀 How to Run
+Shellgit clone <repo-url>cd omnisolve-aidocker compose up --buildShow more lines
+Start Minikube:
+Shellminikube startkubectl apply -f k8s/``
