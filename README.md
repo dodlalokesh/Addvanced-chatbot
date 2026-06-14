@@ -32,86 +32,127 @@ This project focuses on making AI practical, usable, and execution-ready, rather
 🔶 Architecture Flow
 ================ USER ACCESS LAYER ================
 
+
 User → Browser → Domain (omnisolve.local)
+
        ↓
 Local DNS + Port Forwarding
+
        ↓
 Nginx Ingress Controller
+
        ↓
 Kubernetes Services
+
        ↓
 Chatbot Pods (Nginx UI)
 
 
+
 ================ APPLICATION LAYER ================
 
+
 React UI (HTML + CSS + JS)
+
        ↓
 Served via Nginx Container
+
        ↓
 Runs inside Kubernetes (Minikube)
+
        ↓
 Deployment (2 Replicas)
 
 
+
 ================ CI/CD PIPELINE =================
 
+
 Webhook Trigger
+
        ↓
 Jenkins Pipeline
+
        ↓
 Docker Build
+
        ↓
 Docker Hub Push
+
        ↓
 Kubernetes Deployment
 
 
+
 ================ MONITORING =================
 
+
 Prometheus → Collect Metrics
+
        ↓
 Grafana → Visualize Dashboards
 
 
+
 ⚙️ Technology Stack
+
 🔹 Frontend
 
+
 HTML5
+
 CSS3 (Glassmorphism UI)
+
 Vanilla JavaScript (ES6+)
+
 
 🔹 Containerization
 
+
 Docker
+
 Docker Compose
-Nginx Alpine
+
 
 🔹 Orchestration
 
+
 Kubernetes
+
 Minikube
+
 Deployment, Services, Ingress
+
 
 🔹 CI/CD
 
+
 Jenkins
+
 GitHub Webhooks
+
 
 🔹 Monitoring
 
+
 Prometheus
+
 Grafana
+
 
 
 🐳 Containerization (Docker)
 
+
 Uses Nginx Alpine Image
+
 Hosts UI inside:
+
 /usr/share/nginx/html
 
 
 Exposes:
+
 Port 80
 
 
