@@ -1,0 +1,17 @@
+{
+  "name": "omnisolve-chatbot",
+  "version": "1.0.0",
+  "description": "OmniSolve AI - Real-time Diagnostics & Problem Solving Chatbot",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx -y http-server . -p 3000 -o"
+  },
+  "keywords": [
+    "chatbot",
+    "diagnostics",
+    "troubleshooting",
+    "helper"
+  ],
+  "author": "Antigravity AI",
+  "license": "MIT"
+}
