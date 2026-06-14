@@ -30,14 +30,13 @@ This project focuses on making AI practical, usable, and execution-ready, rather
 ./images/architecture.png
 
 🔶 Architecture Flow
+
 ================ USER ACCESS LAYER ================
 
 
 User → Browser → Domain (omnisolve.local)
-
        ↓
 Local DNS + Port Forwarding
-
        ↓
 Nginx Ingress Controller
 
