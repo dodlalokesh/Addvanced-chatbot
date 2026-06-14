@@ -36,14 +36,16 @@ This project focuses on making AI practical, usable, and execution-ready, rather
 
 User → Browser → Domain (omnisolve.local)
        ↓
+       
 Local DNS + Port Forwarding
        ↓
+       
 Nginx Ingress Controller
-
        ↓
+       
 Kubernetes Services
-
        ↓
+       
 Chatbot Pods (Nginx UI)
 
 
