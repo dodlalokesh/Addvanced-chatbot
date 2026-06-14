@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: chatbot
-        image: omnisolve-chatbot:latest
+        image: lokeshreddy45/chatbot:latest
         imagePullPolicy: IfNotPresent # Crucial for using local Docker images built on Minikube
         ports:
         - containerPort: 80
