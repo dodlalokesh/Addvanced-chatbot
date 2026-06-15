@@ -113,5 +113,42 @@ Ingress Rules (ingress.yaml)
 | grafana.local    | Grafana Service        | 3000 |
 
 
+Ingress Controller
 
+NGINX Ingress Controller handles routing via Host headers
+
+Additional Setup
+
+Local DNS mapping via hosts file
+
+Port forwarding:
+
+Host:8081 → Minikube Ingress:80
+
+===============================================
+
+5️⃣ ⚙️ CI/CD Pipeline (Jenkins)
+Jenkinsfile Stages
+
+
+Checkout
+
+Pulls latest code from GitHub
+
+
+Static Validation
+
+Ensures required files exist
+
+
+
+Build Docker Image
+
+Builds using project Dockerfile
+
+
+
+Push Image
+
+Pushes to Docker Hub:
   
