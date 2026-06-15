@@ -84,6 +84,7 @@ limits:
 Health Probes
 
 Liveness Probe: Restarts unhealthy containers
+
 Readiness Probe: Ensures traffic only hits healthy pods
 
 Service (service.yaml)
