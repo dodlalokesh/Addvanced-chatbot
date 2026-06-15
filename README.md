@@ -13,8 +13,11 @@ OmniSolve AI is an intelligent troubleshooting chatbot designed to assist develo
 The project emphasizes:
 
 End-to-end CI/CD automation
+
 Kubernetes(Minikube)-based deployment
+
 Scalable and resilient architecture
+
 Real-time monitoring and observability
 
 ==========================================================
