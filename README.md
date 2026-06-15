@@ -24,10 +24,9 @@ Real-time monitoring and observability
 
 🏗️ System Architecture
 
+<pre>
 ┌─────────────────────┐
-
 │        USER         │
-
 └──────────┬──────────┘
 
            │ Ask Question / Problem
@@ -84,7 +83,7 @@ Real-time monitoring and observability
 │  User Gets Actionable Solution     │
 │  (Interactive Checklist + Progress)│
 └────────────────────────────────────┘
-
+</pre>
 
 ============================================================
 
