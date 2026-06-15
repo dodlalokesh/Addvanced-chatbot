@@ -25,7 +25,9 @@ Real-time monitoring and observability
 🏗️ System Architecture
 
 ┌─────────────────────┐
+
 │        USER         │
+
 └──────────┬──────────┘
            │ Ask Question / Problem
            ▼
