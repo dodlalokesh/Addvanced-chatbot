@@ -103,5 +103,15 @@ Acts as internal load balancer
 
 ==========================================
 
+4️⃣ 🌐 Routing & Exposure (Ingress)
+Ingress Rules (ingress.yaml)
+
+   | Domain            | Service            | Port |
+|------------------|------------------------|------|
+| omnisolve.local  | Chatbot Service        | 80   |
+| prometheus.local | Prometheus Service     | 9090 |
+| grafana.local    | Grafana Service        | 3000 |
+
+
 
   
