@@ -134,22 +134,22 @@ Jenkinsfile Stages
 
 Checkout
 
-    Pulls latest code from GitHub
+Pulls latest code from GitHub
 
 
 Static Validation
 
-    Ensures required files exist
+Ensures required files exist
 
 
 
 Build Docker Image
 
-     Builds using project Dockerfile
+Builds using project Dockerfile
 
 
 
 Push Image
 
-     Pushes to Docker Hub:
+Pushes to Docker Hub:
            lokeshreddy45/chatbot:latest
