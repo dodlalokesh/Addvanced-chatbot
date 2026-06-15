@@ -45,7 +45,7 @@ Prometheus & Grafana monitor system metrics
 1️⃣ Application Layer (Chatbot)
 
 
-         Frontend:
+    Frontend:
 
 HTML5 + CSS3 (Glassmorphism UI)
 
@@ -53,7 +53,7 @@ Vanilla JavaScript (ES6+)
 
 
 
-         Core Features:
+   Core Features:
 
 Interactive troubleshooting checklist
 
@@ -79,7 +79,7 @@ Enables local development with:
 
          docker compose up --build
 
-Includes:
+  Includes:
 
 Container logging limits
 
@@ -93,13 +93,13 @@ Deployment (deployment.yaml)
 
 Maintains 2 replicas for high availability
 
-Resouce limits:
+   Resouce limits:
 
 limits:
   cpu: 200m
   memory: 256Mi
 
-Health Probes
+   Health Probes
 
 Liveness Probe: Restarts unhealthy containers
 
@@ -124,11 +124,11 @@ Ingress Rules (ingress.yaml)
 | grafana.local    | Grafana Service        | 3000 |
 
 
-Ingress Controller
+  Ingress Controller : 
 
 NGINX Ingress Controller handles routing via Host headers
 
-Additional Setup
+   Additional Setup: 
 
 Local DNS mapping via hosts file
 
@@ -143,34 +143,34 @@ Host:8081 → Minikube Ingress:80
 Jenkinsfile Stages
 
 
-Checkout
+Checkout :
 
 Pulls latest code from GitHub
 
 
-Static Validation
+Static Validation :
 
 Ensures required files exist
 
 
 
-Build Docker Image
+Build Docker Image :
 
 Builds using project Dockerfile
 
 
 
-Push Image
+Push Image :
 
 Pushes to Docker Hub:
            
            lokeshreddy45/chatbot:latest
 
-Deploy to Kubernetes
+Deploy to Kubernetes :
 
             kubectl apply -f k8s/
 
-Rollout Verification
+Rollout Verification :
 
             kubectl rollout status deployment/chatbot
 
@@ -180,7 +180,7 @@ Rollout Verification
 
 Prometheus
 
-Scrapes:
+  Scrapes:
 
 CPU usage
 
@@ -189,7 +189,7 @@ Memory utilization
 Network metrics
 
 
-Uses RBAC:
+  Uses RBAC:
 
 ServiceAccount
 
@@ -199,13 +199,13 @@ ClusterRoleBinding
 
 
 
-Grafana
+  Grafana
 
 Connects to Prometheus:
 
             http://prometheus-service:9090
 
-Dashboards include:
+  Dashboards include:
 
 Pod health
 
