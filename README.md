@@ -3,11 +3,13 @@
 OmniSolve AI is a full-stack DevOps project demonstrating modern CI/CD, containerization, orchestration, and observability practices. This project showcases how a chatbot application is built, containerized, deployed to Kubernetes, and monitored using industry-standard tools.
 
 ===========================================================
+
 📌 Project Overview
 
 OmniSolve AI is an intelligent troubleshooting chatbot designed to assist developers and users in diagnosing networking, hardware, and software issues through an interactive checklist-based UI.
 
 ===========================================================
+
 The project emphasizes:
 
 End-to-end CI/CD automation
