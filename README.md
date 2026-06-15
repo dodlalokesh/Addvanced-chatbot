@@ -1,54 +1,23 @@
-# 🚀 OmniSolve AI – DevOps Project
+🚀 OmniSolve AI – DevOps Project
+OmniSolve AI is a full-stack DevOps project demonstrating modern CI/CD, containerization, orchestration, and observability practices. This project showcases how a chatbot application is built, containerized, deployed to Kubernetes, and monitored using industry-standard tools.
 
----
+📌 Project Overview
+OmniSolve AI is an intelligent troubleshooting chatbot designed to assist developers and users in diagnosing networking, hardware, and software issues through an interactive checklist-based UI.
+The project emphasizes:
 
-# 🔄 Workflow Summary
+End-to-end CI/CD automation
+Kubernetes-based deployment
+Scalable and resilient architecture
+Real-time monitoring and observability
 
-## 1️⃣ Application Request Flow
-User accesses the application via browser →  
-Frontend (HTML, CSS, JS) loads chatbot UI →  
-User interacts with troubleshooting system.
 
----
+🏗️ System Architecture
+The workflow includes:
 
-## 2️⃣ Container Serving
-Frontend is served by **Nginx running inside Docker** →  
-Static files are hosted from `/usr/share/nginx/html`.
+Developer pushes code → GitHub
+Jenkins pipeline builds and deploys
+Docker image is created and pushed to Docker Hub
+Kubernetes (Minikube) deploys containers
+Ingress routes traffic to services
+Prometheus & Grafana monitor system metrics
 
----
-
-## 3️⃣ Kubernetes Deployment
-Docker container runs inside **Minikube Kubernetes cluster** →  
-Deployment maintains **2 replicas** for high availability.
-
----
-
-## 4️⃣ Service & Routing
-ClusterIP Service exposes pods internally →  
-Nginx Ingress Controller routes traffic based on domains:
-
-- omnisolve.local → Chatbot  
-- prometheus.local → Prometheus  
-- grafana.local → Grafana  
-
----
-
-## 5️⃣ CI/CD Pipeline Flow
-GitHub → Webhook → Jenkins →  
-Docker build → Push to Docker Hub →  
-Deploy to Kubernetes → Rollout verification  
-
----
-
-## 6️⃣ Monitoring Flow
-Kubernetes Pods → Prometheus collects metrics →  
-Grafana visualizes dashboards  
-
----
-
-# 🚀 How to Run
-
-## Step 1: Clone Repository
-```bash
-git clone <your-repo-url>
-cd omnisolve-ai
