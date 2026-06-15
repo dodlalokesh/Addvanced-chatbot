@@ -69,3 +69,29 @@ Container logging limits
 Healthchecks using curl
 
 ========================================
+
+3️⃣ ☸️ Orchestration (Kubernetes / Minikube)
+Deployment (deployment.yaml)
+
+Maintains 2 replicas for high availability
+
+Resouce limits:
+
+limits:
+  cpu: 200m
+  memory: 256Mi
+
+Health Probes
+
+Liveness Probe: Restarts unhealthy containers
+Readiness Probe: Ensures traffic only hits healthy pods
+
+Service (service.yaml)
+
+Type: ClusterIP
+Acts as internal load balancer
+
+==========================================
+
+
+  
