@@ -64,13 +64,16 @@ Smart domain switching using keyword detection
 Dockerfile
 
 Uses nginx:alpine (lightweight and secure)
+
 Serves static frontend via /usr/share/nginx/html
+
 Exposes port 80
 
 docker-compose.yml
 
 Enables local development with:
-docker compose up --build
+
+   docker compose up --build
 
 Includes:
 
