@@ -45,7 +45,7 @@ Prometheus & Grafana monitor system metrics
 1️⃣ Application Layer (Chatbot)
 
 
-    Frontend:
+  Frontend:
 
 HTML5 + CSS3 (Glassmorphism UI)
 
