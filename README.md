@@ -23,13 +23,19 @@ Real-time monitoring and observability
 ==========================================================
 
 🏗️ System Architecture
+
 The workflow includes:
 
 Developer pushes code → GitHub
+
 Jenkins pipeline builds and deploys
+
 Docker image is created and pushed to Docker Hub
+
 Kubernetes (Minikube) deploys containers
+
 Ingress routes traffic to services
+
 Prometheus & Grafana monitor system metrics
 
 ==========================================================
