@@ -1,65 +1,54 @@
 # 🚀 OmniSolve AI – DevOps Project
 
-## 📌 Overview
+---
 
-OmniSolve AI is a **client-side interactive chatbot application** designed to solve real-world coding, networking, and DIY hardware issues in real time.
+# 🔄 Workflow Summary
 
-Unlike traditional chatbots that provide static text responses, OmniSolve AI delivers **interactive, actionable solutions**, including:
-
-- ✅ Step-by-step diagnostic checklists  
-- ✅ Copy-on-click console commands  
-- ✅ Structured code diffs  
-- ✅ Smart warnings and guidance  
+## 1️⃣ Application Request Flow
+User accesses the application via browser →  
+Frontend (HTML, CSS, JS) loads chatbot UI →  
+User interacts with troubleshooting system.
 
 ---
 
-## 🎯 Project Purpose
-
-This project demonstrates a **complete end-to-end DevOps pipeline**, including:
-
-- Containerization with Docker  
-- Kubernetes orchestration using Minikube  
-- CI/CD automation with Jenkins  
-- Observability using Prometheus & Grafana  
+## 2️⃣ Container Serving
+Frontend is served by **Nginx running inside Docker** →  
+Static files are hosted from `/usr/share/nginx/html`.
 
 ---
 
-# 🏗️ System Architecture
-
-> Below is the high-level architecture showing how the application is deployed, exposed, and monitored.
-
-images/architecture.png
+## 3️⃣ Kubernetes Deployment
+Docker container runs inside **Minikube Kubernetes cluster** →  
+Deployment maintains **2 replicas** for high availability.
 
 ---
 
-# 🔧 Component Breakdown
+## 4️⃣ Service & Routing
+ClusterIP Service exposes pods internally →  
+Nginx Ingress Controller routes traffic based on domains:
+
+- omnisolve.local → Chatbot  
+- prometheus.local → Prometheus  
+- grafana.local → Grafana  
 
 ---
 
-## 1️⃣ Application Layer (Chatbot)
-
-### 🔹 Frontend
-- Built using:
-  - HTML5  
-  - CSS3 (Dark Glassmorphic UI)  
-  - Vanilla JavaScript (ES6+)  
-
-### 🔹 Features
-- Interactive troubleshooting workflows  
-- Dynamic checklist-based debugging  
-- Progress tracking UI  
-
-### 🔹 Smart Routing
-- Detects keywords and routes user queries dynamically across:
-  - Coding  
-  - Networking  
-  - Hardware  
+## 5️⃣ CI/CD Pipeline Flow
+GitHub → Webhook → Jenkins →  
+Docker build → Push to Docker Hub →  
+Deploy to Kubernetes → Rollout verification  
 
 ---
 
-## 2️⃣ Containerization (Docker)
+## 6️⃣ Monitoring Flow
+Kubernetes Pods → Prometheus collects metrics →  
+Grafana visualizes dashboards  
 
-### 🔹 Dockerfile
-- Base Image: **Nginx Alpine**
-- Copies static files to:
- 
+---
+
+# 🚀 How to Run
+
+## Step 1: Clone Repository
+```bash
+git clone <your-repo-url>
+cd omnisolve-ai
