@@ -1,3 +1,8 @@
+
+#devops-integration--requirements-guide
+
+https://github.com/dodlalokesh/Addvanced-chatbot/blob/main/requirements-devops.md
+
 🚀 OmniSolve AI – DevOps Project
 
 OmniSolve AI is a full-stack DevOps project demonstrating modern CI/CD, containerization, orchestration, and observability practices. This project showcases how a chatbot application is built, containerized, deployed to Kubernetes, and monitored using industry-standard tools.
