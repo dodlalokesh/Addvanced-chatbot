@@ -87,6 +87,7 @@ Real-time monitoring and observability
 
 ============================================================
 
+<pre>
 ┌─────────────────────┐
 │      DEVELOPER      │
 └──────────┬──────────┘
@@ -154,9 +155,11 @@ Real-time monitoring and observability
 │   (Web Browser)     │
 └─────────────────────┘
 
+</pre>
 
 ================ MONITORING STACK =================
 
+<pre>
 ┌────────────────────────────┐
 │        Prometheus          │
 │   Metrics Collection       │
@@ -175,10 +178,12 @@ Real-time monitoring and observability
 │   Dashboard Visualization  │
 └──────────┬─────────────────┘
 
+</pre>
 ============================================================
 
 ⚙️ Deployment Layer (Where It Runs)
 
+<pre>
    Frontend Files (HTML, CSS, JS)
            ▼
 ┌────────────────────────────┐
@@ -206,7 +211,7 @@ Real-time monitoring and observability
 │   omnisolve.local:8081     │
 └────────────────────────────┘
 
-
+</pre>
 ==========================================================
 
 🔧 Component Breakdown
