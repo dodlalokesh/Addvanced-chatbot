@@ -29,7 +29,9 @@ Real-time monitoring and observability
 │        USER         │
 
 └──────────┬──────────┘
+
            │ Ask Question / Problem
+           
            ▼
 ┌────────────────────────────────────┐
 │     Frontend (HTML + CSS + JS)     │
